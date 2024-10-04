@@ -1,0 +1,15 @@
+<odoo>
+    <record id="action_report_trip" model="ir.actions.report">
+        <field name="name">Trip Report</field>
+        <field name="model">wrms.trip</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">WRMS.report_trip_template</field>
+        <field name="report_file">WRMS.report_trip_template</field>
+        <field name="print_report_name">'%s Visitor Cards'% object.display_name</field>
+<!--report is accessible anywhere that trip is related/relevant    -->
+        <field name="binding_model_id" ref="model_wrms_trip"/>
+<!--used in the context of reports-->
+        <field name="binding_type">report</field>
+    </record>
+</odoo>
+

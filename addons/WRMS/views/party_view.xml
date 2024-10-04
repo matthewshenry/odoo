@@ -1,0 +1,63 @@
+<odoo>
+    <data>
+        <record id="party_action" model="ir.actions.act_window">
+            <field name="name">Parties</field>
+            <field name="res_model">wrms.party</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="WRMS_party_view_form" model="ir.ui.view">
+            <field name="name">WRMS party Form</field>
+            <field name="model">wrms.party</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="party_no"/>
+                            <field name="head_of_party"/>
+                            <field name="num_passengers"/>
+                            <field name="has_kids"/>
+                            <field name="visitor_ids" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="WRMS_party_view_tree" model="ir.ui.view">
+            <field name="name">WRMS party List</field>
+            <field name="model">wrms.party</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="party_no"/>
+                    <field name="head_of_party"/>
+                    <field name="num_passengers"/>
+                    <field name="has_kids"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="WRMS_party_view_search" model="ir.ui.view">
+            <field name="name">WRMS party Search</field>
+            <field name="model">wrms.party</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="head_of_party"/>
+                    <field name="party_no"/>
+                    <field name="num_passengers"/>
+                    <field name="has_kids"/>
+
+                </search>
+            </field>
+        </record>
+        <record id="WRMS_party_action" model="ir.actions.act_window">
+            <field name="name">Party</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wrms.party</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'search_default_filter_child':1}</field>
+        </record>
+        <menuitem name="Party Menu" id="WRMS_party_menu" parent="WRMS.WRMS_base_menu" action="WRMS_party_action"/>
+    </data>
+</odoo>

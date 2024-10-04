@@ -1,0 +1,30 @@
+<odoo>
+    <data>
+        <!-- Define the form view for Booking Reset Wizard -->
+        <record id="view_reset_booking_wizard_form" model="ir.ui.view">
+            <field name="name">reset.booking.wizard.form</field>
+            <field name="model">reset.booking.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Confirm Reset">
+                    <group>
+                        <field name="booking_id" invisible="1"/>
+                        <div class="o_form_label" colspan="4">
+                            Are you sure you want to reset this booking? It will be returned to "Pending" status.
+                        </div>
+                    </group>
+                    <footer>
+                        <button string="Yes" type="object" name="action_confirm_reset" class="btn-primary"/>
+                        <button string="No" type="object" name="action_reset" class="btn-secondary"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record id="action_reset_booking_wizard" model="ir.actions.act_window">
+            <field name="name">Reset Booking</field>
+            <field name="res_model">reset.booking.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="context">{'default_booking_id': active_id}</field>
+        </record>
+    </data>
+</odoo>

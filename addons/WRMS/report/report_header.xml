@@ -1,0 +1,24 @@
+<odoo>
+    <template id="report_header">
+        <div class="header" style="border-bottom: 1px solid black; overflow: hidden; width: 100%">
+            <div style="float: left;">
+                <h4 style="font-family: 'Copperplate';">Whitewater Rafting Co.</h4>
+                <p style="margin-bottom: 0px;">3015 Lake Dr, Citywest, Dublin, D24</p>
+                <p>DKP4, Ireland</p>
+            </div>
+                <img t-att-src="'/WRMS/static/src/img/raft-thumbnail.jpg'" style="float: right; max-width: 200px; margin-bottom: 10px"/>
+        </div>
+    </template>
+    <template id="report_footer">
+        <div class="footer" style="border-top: 1px solid black; overflow: hidden; width: 100%; margin-top: 10px;">
+            <div style="float: left;">
+                <p style="margin-bottom: 0px;">2024 Whitewater Rafting Co.</p>
+                <p style="margin-bottom: 0px;">Visit us at <a href="https://www.americanwhitewater.com">www.americanwhitewater.com</a></p>
+            </div>
+            <div style="float: right;">
+                <p style="margin-bottom: 0px;"> Contact us: info@whitewaterraftingco.com</p>
+                <p style="margin-bottom: 0px;">Phone: +353 1 234 5678</p>
+            </div>
+        </div>
+    </template>
+</odoo>

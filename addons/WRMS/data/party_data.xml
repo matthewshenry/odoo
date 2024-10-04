@@ -1,0 +1,14 @@
+<odoo>
+<!--    <record id="party_1" model="wrms.party">-->
+<!--        <field name="party_no">P001</field>-->
+<!--        <field name="head_of_party">John Doze</field>-->
+<!--        <field name="num_passengers">4</field>-->
+<!--        <field name="has_kids">True</field>-->
+<!--    </record>-->
+<!--    <record id="party_2" model="wrms.party">-->
+<!--        <field name="party_no">P002</field>-->
+<!--        <field name="head_of_party">Jane Smith</field>-->
+<!--        <field name="num_passengers">5</field>-->
+<!--        <field name="has_kids">False</field>-->
+<!--    </record>-->
+</odoo>

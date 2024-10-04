@@ -1,0 +1,3 @@
+<odoo>
+    <menuitem name="WRMS" id="WRMS_base_menu" sequence = "-10"/>
+</odoo>

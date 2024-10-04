@@ -1,0 +1,7 @@
+<odoo>
+    <record id="trip_1" model="wrms.trip">
+        <field name="trip_date">2024-07-07</field>
+        <field name="am_pm">AM</field>
+        <field name="section">Numbers</field>
+    </record>
+</odoo>

@@ -1,0 +1,143 @@
+<odoo>
+    <data>
+        <!-- Define the action for the Booking model -->
+        <record id="booking_action" model="ir.actions.act_window">
+            <field name="name">Bookings</field>
+            <field name="res_model">wrms.booking</field>
+            <field name="view_mode">kanban,tree,form</field>
+        </record>
+
+        <!-- Define the form view for Booking -->
+        <record id="WRMS_booking_view_form" model="ir.ui.view">
+            <field name="name">WRMS Booking Form</field>
+            <field name="model">wrms.booking</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_open_reset_wizard" type="object" string="Reset" invisible="stage in ['pending', 'checked-in']" class="btn-outline-primary"/>
+                        <button name="action_set_checked_in" type="object" string="Check-In" invisible="stage in ['checked-in', 'canceled', 'complete']" class="btn-primary"/>
+                        <button name="action_set_completed" type="object" string="Mark as Complete" invisible="stage in ['pending', 'canceled', 'complete']" class="btn-success"/>
+                        <button name="action_open_cancel_wizard" type="object" string="Cancel" class="btn-danger" invisible="stage in ['complete', 'canceled']"/>
+                        <field name="stage" widget="statusbar" statusbar_visible="pending,checked-in,complete,canceled"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <button name="action_open_booking_trip_wizard" type="object" string="Select Trip" class="btn-secondary"/>
+                            <group>
+                                <field name="trip_id" readonly="1"/>
+                                <field name="party_id" context="{'form_view_ref': 'WRMS_party_view_form'}">
+                                    <tree>
+                                        <field name="party_no"/>
+                                        <field name="head_of_party"/>
+                                        <field name="num_passengers"/>
+                                        <field name="has_kids"/>
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <field name="party_no"/>
+                                            <field name="head_of_party"/>
+                                            <field name="num_passengers"/>
+                                            <field name="has_kids"/>
+                                        </group>
+                                    </form>
+                                </field>
+                                <field name="cancellation_reason" readonly="1" invisible="stage in ['pending', 'checked-in', 'complete']"/>
+                            </group>
+                        </group>
+<!--                        <group>-->
+<!--                            <field name="visitor_ids" view_id="base.view_partner_tree"/>-->
+<!--                            <field name="visitor_ids" context="{'form_view_ref': 'WRMS_visitor_view_form'}">-->
+<!--                                <tree editable="bottom">-->
+<!--&lt;!&ndash;                                    <field name="name"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <field name="age"/>&ndash;&gt;-->
+<!--                                </tree>-->
+<!--                                <form>-->
+<!--                                    <group>-->
+<!--&lt;!&ndash;                                        <field name="name"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        <field name="age"/>&ndash;&gt;-->
+<!--                                    </group>-->
+<!--                                </form>-->
+<!--                        </group>-->
+<!--                        </group>-->
+                        <div class="oe_chatter">
+                            <field name="message_follower_ids" widget="mail_followers"/>
+                            <field name="message_ids" widget="mail_thread"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Define the kanban view for Booking -->
+        <record id="WRMS_booking_view_kanban" model="ir.ui.view">
+            <field name="name">WRMS Booking Kanban</field>
+            <field name="model">wrms.booking</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <templates>
+                        <t t-name="kanban-box" default_order="trip_date asc">
+                            <div class="oe_kanban_global_click">
+                                <div class="o_kanban_details">
+                                    <field name="stage" widget="statusbar" statusbar_visible="pending,checked-in,complete,canceled"/>
+                                    <div><strong><field name="party_id"/></strong></div>
+                                    <div><field name="head_of_party"/></div>
+                                    <div><span><field name="section"/></span> |
+                                        <span><field name="am_pm"/></span> |
+                                        <span><field name="trip_date"/></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                    <field name="party_id"/>
+                    <field name="head_of_party"/>
+                    <field name="am_pm"/>
+                    <field name="section"/>
+                    <field name="trip_date"/>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- Define the tree view for Booking -->
+        <record id="WRMS_booking_view_tree" model="ir.ui.view">
+            <field name="name">WRMS Booking List</field>
+            <field name="model">wrms.booking</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="trip_id" context="{'form_view_ref': 'WRMS_trip_view_form'}">
+                        <tree default_order="trip_date asc">
+                                <field name="am_pm"/>
+                                <field name="section"/>
+                                <field name="trip_date"/>
+                        </tree>
+                    </field>
+                    <field name="party_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Define the search view for Booking -->
+        <record id="WRMS_booking_view_search" model="ir.ui.view">
+            <field name="name">WRMS Booking Search</field>
+            <field name="model">wrms.booking</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="trip_id"/>
+                    <field name="party_id"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- Define the action window for Booking model -->
+        <record id="WRMS_booking_action" model="ir.actions.act_window">
+            <field name="name">Bookings</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wrms.booking</field>
+            <field name="view_mode">kanban,tree,form</field>
+        </record>
+
+        <!-- Define the menu item for Booking Management -->
+        <menuitem name="Booking Management Menu" id="WRMS_booking_menu" parent="WRMS.WRMS_base_menu" action="WRMS_booking_action"/>
+
+    </data>
+</odoo>

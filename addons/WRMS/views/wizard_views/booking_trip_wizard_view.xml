@@ -1,0 +1,26 @@
+<odoo>
+    <data>
+        <record id="view_booking_trip_wizard_form" model="ir.ui.view">
+            <field name="name">booking.trip.wizard.form</field>
+            <field name="model">booking.trip.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Select Trip">
+                    <group>
+                        <field name="trip_date"/>
+                        <field name="am_pm"/>
+                        <field name="section"/>
+                    </group>
+                    <footer>
+                        <button string="Confirm Trip Details" type="object" name="action_select_trip" class="btn-primary"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record id="action_booking_trip_wizard" model="ir.actions.act_window">
+            <field name="name">Select Trip</field>
+            <field name="res_model">booking.trip.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

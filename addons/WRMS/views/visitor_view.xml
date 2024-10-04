@@ -1,0 +1,62 @@
+<odoo>
+    <data>
+        <!-- Defines the action for the Visitor model -->
+        <record id="visitor_action" model="ir.actions.act_window">
+            <field name="name">Visitors</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Defines form view -->
+        <record id="WRMS_visitor_view_form" model="ir.ui.view">
+            <field name="name">WRMS Visitor Form</field>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="age"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!-- Defines tree view -->
+        <record id="WRMS_visitor_view_tree" model="ir.ui.view">
+            <field name="name">WRMS Visitor List</field>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="age"/>
+                    <field name="party_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Defines search view -->
+        <record id="WRMS_visitor_view_search" model="ir.ui.view">
+            <field name="name">WRMS Visitor Search</field>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="age"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- Defines action window -->
+        <record id="WRMS_visitor_action" model="ir.actions.act_window">
+            <field name="name">Visitor</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'search_default_filter_child':1}</field>
+        </record>
+
+        <menuitem name="Visitor Menu" id="WRMS_visitor_menu" parent="WRMS.WRMS_base_menu" action="WRMS_visitor_action"/>
+    </data>
+</odoo>

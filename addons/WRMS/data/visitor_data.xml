@@ -1,0 +1,39 @@
+<odoo>
+<!--    <record id="visitor_1" model="wrms.visitor">-->
+<!--        <field name="name">Alice Johnson</field>-->
+<!--        <field name="age">30</field>-->
+<!--    </record>-->
+<!--    <record id="visitor_2" model="wrms.visitor">-->
+<!--        <field name="name">Bob Brown</field>-->
+<!--        <field name="age">32</field>-->
+<!--    </record>-->
+<!--    <record id="visitor_3" model="wrms.visitor">-->
+<!--        <field name="name">Charlie Davis</field>-->
+<!--        <field name="age">28</field>-->
+<!--    </record>-->
+<!--    <record id="visitor_4" model="wrms.visitor">-->
+<!--        <field name="name">Diana Evans</field>-->
+<!--        <field name="age">26</field>-->
+<!--    </record>-->
+<!--    <record id="visitor_5" model="wrms.visitor">-->
+<!--        <field name="name">Ethan Foster</field>-->
+<!--        <field name="age">35</field>-->
+<!--        <field name="party_id">1</field>-->
+<!--    </record>-->
+<!--    <record id="visitor_6" model="wrms.visitor">-->
+<!--        <field name="name">Fiona Green</field>-->
+<!--        <field name="age">34</field>-->
+<!--    </record>-->
+<!--    <record id="visitor_7" model="wrms.visitor">-->
+<!--        <field name="name">George Harris</field>-->
+<!--        <field name="age">29</field>-->
+<!--    </record>-->
+<!--    <record id="visitor_8" model="wrms.visitor">-->
+<!--        <field name="name">Hannah Irving</field>-->
+<!--        <field name="age">31</field>-->
+<!--    </record>-->
+<!--    <record id="visitor_9" model="wrms.visitor">-->
+<!--        <field name="name">Ivy Jackson</field>-->
+<!--        <field name="age">27</field>-->
+<!--    </record>-->
+</odoo>

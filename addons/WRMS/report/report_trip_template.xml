@@ -1,0 +1,95 @@
+<odoo>
+    <template id="report_trip_template">
+        <t t-call="web.basic_layout">
+            <t t-call="WRMS.report_header"/>
+            <t t-foreach="docs" t-as="trip">
+                <div class="page">
+                    <h2><t t-esc="trip.display_name"/> Visitor Cards</h2>
+
+                    <style>
+                        .column {
+                            float: left;
+                            width: 33.33%;
+                            padding: 10px;
+                        }
+                        .card {
+                            border: 1px solid #222;
+                            border-radius: 0;
+                            text-align: center;
+                            margin-bottom: 10px;
+                        }
+                    </style>
+                    <div>
+                        <t t-foreach="trip.visitor_ids" t-as="visitor">
+                            <div class="column">
+                                <div class="card">
+                                    <h3><t t-esc="visitor.name"/></h3>
+                                    <p>Age: <t t-esc="visitor.age"/></p>
+                                    <p>Party: <t t-esc="visitor.party_id.party_no"/></p>
+                                    <p><t t-esc="trip.display_name"/></p>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+
+                </div>
+            </t>
+            <t t-call="WRMS.report_footer"/>
+        </t>
+    </template>
+<!--    A previous version of the PDF report that simply printed parties in a small table.-->
+<!--    <template id="report_trip_template">-->
+<!--        <t t-call="web.html_container">-->
+<!--            <t t-foreach="docs" t-as="trip">-->
+<!--                <div class="page">-->
+<!--                    <h2><t t-esc="trip.display_name"/> Trip Report</h2>-->
+<!--                    <h3> </h3>-->
+<!--                    <style>-->
+<!--                        table {-->
+<!--                            width: 100%;-->
+<!--                            border-collapse: collapse;-->
+<!--                            margin-bottom: 20px;-->
+<!--                        }-->
+<!--                        th, td {-->
+<!--                            border: 1px solid #ddd;-->
+<!--                            padding: 8px;-->
+<!--                            text-align: left;-->
+<!--                        }-->
+<!--                        th {-->
+<!--                            background-color: #f2f2f2;-->
+<!--                        }-->
+<!--                        th, td {-->
+<!--                            text-align: left;-->
+<!--                            padding: 8px;-->
+<!--                        }-->
+<!--                        th {-->
+<!--                            background-color: #f2f2f2;-->
+<!--                            color: black;-->
+<!--                        }-->
+<!--                        .table-container {-->
+<!--                            margin-bottom: 20px;-->
+<!--                        }-->
+<!--                    </style>-->
+<!--                    <table class="table">-->
+<!--                        <thead>-->
+<!--                            <tr>-->
+<!--                                <th>Party Number</th>-->
+<!--                                <th>Head of Party</th>-->
+<!--                                <th># of Passengers</th>-->
+<!--                                <th>Booking Stage</th>-->
+<!--                            </tr>-->
+<!--                        </thead>-->
+<!--                        <tbody>-->
+<!--                            <tr t-foreach="trip.booking_ids" t-as="booking">-->
+<!--                                <td><t t-esc="booking.party_id.party_no"/></td>-->
+<!--                                <td><t t-esc="booking.party_id.head_of_party"/></td>-->
+<!--                                <td><t t-esc="booking.party_id.num_passengers"/></td>-->
+<!--                                <td><t t-esc="booking.stage"/></td>-->
+<!--                            </tr>-->
+<!--                        </tbody>-->
+<!--                    </table>-->
+<!--                </div>-->
+<!--            </t>-->
+<!--        </t>-->
+<!--    </template>-->
+</odoo>

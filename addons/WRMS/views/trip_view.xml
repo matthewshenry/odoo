@@ -1,0 +1,77 @@
+<odoo>
+    <data>
+        <record id="trip_action" model="ir.actions.act_window">
+            <field name="name">Trips</field>
+            <field name="res_model">wrms.trip</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="WRMS_trip_view_form" model="ir.ui.view">
+            <field name="name">WRMS Trip Form</field>
+            <field name="model">wrms.trip</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="am_pm"/>
+                                <field name="section"/>
+                                <field name="trip_date"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Parties">
+                                <field name="party_ids">
+                                    <tree>
+                                        <field name="party_no"/>
+                                        <field name="head_of_party"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Rafts">
+                                <field name="raft_ids">
+                                    <tree>
+                                        <field name="boat_name"/>
+                                        <field name="guide_name"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="WRMS_trip_view_tree" model="ir.ui.view">
+            <field name="name">WRMS Trip List</field>
+            <field name="model">wrms.trip</field>
+            <field name="arch" type="xml">
+                <tree default_order="trip_date asc">
+                    <field name="trip_date"/>
+                    <field name="section"/>
+                    <field name="am_pm"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="WRMS_trip_view_search" model="ir.ui.view">
+            <field name="name">WRMS Trip Search</field>
+            <field name="model">wrms.trip</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="trip_date"/>
+                    <field name="section"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="WRMS_trip_action" model="ir.actions.act_window">
+            <field name="name">Trips</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wrms.trip</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Trip Menu" id="WRMS_trip_menu" parent="WRMS.WRMS_base_menu" action="WRMS_trip_action"/>
+    </data>
+</odoo>

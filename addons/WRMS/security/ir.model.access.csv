@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_wrms_party_model,access_wrms_party_model,model_wrms_party,base.group_user,1,1,1,1
+access_wrms_visitor_model,access_wrms_visitor_model,model_res_partner,base.group_user,1,1,1,1
+access_wrms_raft_model,access_wrms_raft_model,model_wrms_raft,base.group_user,1,1,1,1
+access_wrms_trip_model,access_wrms_trip_model,model_wrms_trip,base.group_user,1,1,1,1
+access_wrms_booking_model,access_wrms_booking_model,model_wrms_booking,base.group_user,1,1,1,1
+access_cancel_booking_wizard,cancel.booking.wizard,model_cancel_booking_wizard,,1,1,1,1
+access_reset_booking_wizard,reset.booking.wizard,model_reset_booking_wizard,,1,1,1,1
+access_booking_trip_wizard,booking.trip.wizard,model_booking_trip_wizard,,1,1,1,1
